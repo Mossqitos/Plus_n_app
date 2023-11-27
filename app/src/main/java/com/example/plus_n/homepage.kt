@@ -9,16 +9,11 @@ import android.widget.Button
 import androidx.navigation.Navigation
 import com.example.plus_n.Start_page.GameActivity
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [homepage.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class homepage : Fragment() {
 
 
