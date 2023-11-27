@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".systems">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+        <Button
+            android:id="@+id/key00"
+            android:layout_width="136dp"
+            android:layout_height="145dp"
+            android:layout_marginStart="40dp"
+            android:textSize="25sp"
+            android:text="waiting"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/custom_buttonslice"
+            app:layout_constraintBottom_toTopOf="@+id/key10"
+            app:layout_constraintEnd_toStartOf="@+id/key01"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.861" />
+
+        <Button
+            android:id="@+id/key01"
+            android:layout_width="136dp"
+            android:layout_height="145dp"
+            android:layout_marginEnd="40dp"
+            android:textSize="25sp"
+            android:text="waiting"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/custom_buttonslice"
+            app:layout_constraintBottom_toTopOf="@+id/key11"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.861" />
+
+        <Button
+            android:id="@+id/key10"
+            android:layout_width="136dp"
+            android:layout_height="145dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginBottom="116dp"
+            android:textSize="25sp"
+            android:text="waiting"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/custom_buttonslice"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/key11"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/key11"
+            android:layout_width="136dp"
+            android:layout_height="145dp"
+            android:layout_marginBottom="116dp"
+            android:textSize="25sp"
+            android:text="waiting"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/custom_buttonslice"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.854"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/nvalue"
+            android:layout_width="120dp"
+            android:layout_height="71dp"
+            android:textSize="25sp"
+            android:text="waiting"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/custom_startbutton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.187" />
+
+        <TextView
+            android:id="@+id/Result"
+            android:layout_width="108dp"
+            android:layout_height="59dp"
+            android:layout_marginBottom="36dp"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:text="Waiting"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/custom_startbutton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/Reset"
+            android:layout_width="92dp"
+            android:layout_height="59dp"
+            android:text="Reset"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.875"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.947" />
+
+        <Button
+            android:id="@+id/btnBacktohome"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/arrowback"
+            android:text=""
+            android:textColor="#ffffff"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.078"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/redoIcon"
+            android:layout_width="69dp"
+            android:layout_height="68dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/redoicon"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.116"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</FrameLayout>
