@@ -1,12 +1,15 @@
 package com.example.plus_n
 
+
 import android.graphics.Color
 import android.os.Bundle
+import android.os.CountDownTimer
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.navigation.Navigation
 import com.example.plus_n.Start_page.generateRandomExcludingValues
@@ -22,6 +25,9 @@ class systems : Fragment() {
     private var param2: String? = null
     private lateinit var view: View
     var Score: Int = 0
+    private var timeprogress=0
+    private var timeCountDown: CountDownTimer?=null
+    private var timeSelected : Int =0
 
 
     override fun onCreateView(
@@ -46,9 +52,33 @@ class systems : Fragment() {
             recolor()
         }
         rerandomizeValue()
+        timeSelected=30
+        startTimer(timeSelected)
         return view
 
     }
+    private fun startTimer(time:Int)
+    {
+        val progressBar = view.findViewById<ProgressBar>(R.id.TimerIcon)
+        progressBar.progress=timeprogress
+        timeCountDown=object :CountDownTimer(
+            (time*1000).toLong(),1000)
+        {
+            override fun onTick(p0: Long) {
+                timeprogress++
+                progressBar.progress=time-timeprogress
+                val timeLeftTv:TextView = view.findViewById(R.id.Point)
+                timeLeftTv.text = (time - timeprogress).toString()
+            }
+
+            override fun onFinish() {
+                val result:TextView =view.findViewById<TextView>(R.id.Result)
+                result.text = "Stop"
+            }
+        }.start()
+    }
+
+
 
     private val selectedButtons = mutableListOf<Button>()
     override fun onCreate(savedInstanceState: Bundle?) {
