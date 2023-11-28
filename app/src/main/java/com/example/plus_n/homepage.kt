@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.navigation.Navigation
 import com.example.plus_n.Start_page.GameActivity
 
@@ -23,6 +24,8 @@ class homepage : Fragment() {
     ): View? {
 
         val view= inflater.inflate(R.layout.fragment_homepage, container, false)
+        val showMaxscore = view.findViewById<TextView>(R.id.maxScore)
+        showMaxscore.text=MaxScore.toString()
         return view
     }
 

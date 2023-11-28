@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import androidx.navigation.Navigation
 import com.example.plus_n.Start_page.generateRandomExcludingValues
 import kotlin.random.Random
@@ -19,6 +20,7 @@ import kotlin.random.Random
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+public var MaxScore:Int = 0
 
 class systems : Fragment() {
     // TODO: Rename and change types of parameters
@@ -26,17 +28,19 @@ class systems : Fragment() {
     private var param2: String? = null
     private lateinit var view: View
     var Score: Int = 0
+
     private var timeprogress=0
     private var timeCountDown: CountDownTimer?=null
     private var timeSelected : Int =0
+
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-         view= inflater.inflate(R.layout.fragment_systems, container, false)
+        val Homeview= inflater.inflate(R.layout.fragment_homepage, container, false)
+        view= inflater.inflate(R.layout.fragment_systems, container, false)
         val btnBacketohome = view.findViewById<Button>(R.id.btnBacktohome)
         val resetButton= view.findViewById<Button>(R.id.nextRandom)
         val rerandom = view.findViewById<Button>(R.id.reRandom)
@@ -100,13 +104,24 @@ class systems : Fragment() {
         val hiddenpage = view.findViewById<FrameLayout>(R.id.hiddenLayout)
         val btnReset = view.findViewById<Button>(R.id.redoIcon)
         val btnNext = view.findViewById<Button>(R.id.nextRandom)
+        val btnUpload = view.findViewById<Button>(R.id.uploadScore)
+        val btnPlay = view.findViewById<Button>(R.id.playAgain)
+        val showScore = view.findViewById<TextView>(R.id.showScore)
         hiddenpage.visibility = View.VISIBLE
         btnNext.visibility = View.GONE
         btnReset.visibility = View.GONE
+        btnUpload.visibility=View.VISIBLE
+        btnPlay.visibility=View.VISIBLE
         key00.isEnabled=false
         key01.isEnabled=false
         key10.isEnabled=false
         key11.isEnabled=false
+        if(Score>MaxScore)
+        {
+            MaxScore=Score
+        }
+        showScore.visibility = View.VISIBLE
+        showScore.text=Score.toString()
     }
     private fun startTimer(time:Int)
     {
