@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.navigation.Navigation
@@ -37,12 +38,27 @@ class systems : Fragment() {
 
          view= inflater.inflate(R.layout.fragment_systems, container, false)
         val btnBacketohome = view.findViewById<Button>(R.id.btnBacktohome)
-        val resetButton= view.findViewById<Button>(R.id.Reset)
+        val resetButton= view.findViewById<Button>(R.id.redoIcon)
+        val rerandom = view.findViewById<Button>(R.id.reRandom)
         val redo = view.findViewById<Button>(R.id.redoIcon)
         Score=0
         resetButton.setOnClickListener {
             recolor()
             selectedButtons.clear()
+            val hiddenpage = view.findViewById<FrameLayout>(R.id.hiddenLayout)
+            val btnReset = view.findViewById<Button>(R.id.redoIcon)
+            hiddenpage.visibility = View.GONE
+            btnReset.visibility = View.GONE
+            rerandomizeValue()
+        }
+        rerandom.setOnClickListener {
+
+            recolor()
+            selectedButtons.clear()
+            val hiddenpage = view.findViewById<FrameLayout>(R.id.hiddenLayout)
+            val btnReset = view.findViewById<Button>(R.id.redoIcon)
+            hiddenpage.visibility = View.GONE
+            btnReset.visibility = View.GONE
             rerandomizeValue()
         }
         btnBacketohome.setOnClickListener {
@@ -50,6 +66,10 @@ class systems : Fragment() {
         }
         redo.setOnClickListener {
             recolor()
+            val hiddenpage = view.findViewById<FrameLayout>(R.id.hiddenLayout)
+            val btnReset = view.findViewById<Button>(R.id.redoIcon)
+            hiddenpage.visibility = View.GONE
+            btnReset.visibility = View.GONE
         }
         rerandomizeValue()
         timeSelected=30
@@ -93,6 +113,10 @@ class systems : Fragment() {
         val n = random.nextInt(6,50)
         val a = random.nextInt(0,n)
         val b=n-a
+        val hiddenpage = view.findViewById<FrameLayout>(R.id.hiddenLayout)
+        val btnReset = view.findViewById<Button>(R.id.redoIcon)
+        hiddenpage.visibility = View.GONE
+        btnReset.visibility = View.GONE
 
         while(la[0]==lb[0]&&la[1]==lb[1])
         {
@@ -159,16 +183,26 @@ class systems : Fragment() {
                 }
                 if(sum == n)
                 {
+                    val hiddenpage = view.findViewById<FrameLayout>(R.id.hiddenLayout)
+                    val btnReset = view.findViewById<Button>(R.id.redoIcon)
+                    hiddenpage.visibility = View.VISIBLE
+                    btnReset.visibility = View.GONE
                     selectedButtons[0].setBackgroundResource(R.drawable.custom_buttoncorrect)
                     selectedButtons[1].setBackgroundResource(R.drawable.custom_buttoncorrect)
                     Score++;
                     val scoreview:TextView = view.findViewById<TextView>(R.id.Score)
                     scoreview.text=Score.toString()
+
                 }
                 else
                 {
+                    val hiddenpage = view.findViewById<FrameLayout>(R.id.hiddenLayout)
+                    val btnReset = view.findViewById<Button>(R.id.redoIcon)
+                    hiddenpage.visibility = View.VISIBLE
+                    btnReset.visibility = View.VISIBLE
                     selectedButtons[0].setBackgroundResource(R.drawable.custom_buttonuncorrect)
                     selectedButtons[1].setBackgroundResource(R.drawable.custom_buttonuncorrect)
+
                 }
 
             }
