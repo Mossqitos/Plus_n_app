@@ -38,7 +38,7 @@ class systems : Fragment() {
 
          view= inflater.inflate(R.layout.fragment_systems, container, false)
         val btnBacketohome = view.findViewById<Button>(R.id.btnBacktohome)
-        val resetButton= view.findViewById<Button>(R.id.redoIcon)
+        val resetButton= view.findViewById<Button>(R.id.nextRandom)
         val rerandom = view.findViewById<Button>(R.id.reRandom)
         val redo = view.findViewById<Button>(R.id.redoIcon)
         Score=0
@@ -155,7 +155,10 @@ class systems : Fragment() {
         key01.text = arr[0][1].toString()
         key10.text = arr[1][0].toString()
         key11.text = arr[1][1].toString()
-
+        key00.isEnabled=true
+        key01.isEnabled=true
+        key10.isEnabled=true
+        key11.isEnabled=true
         val scoreview:TextView = view.findViewById<TextView>(R.id.Score)
         scoreview.text=Score.toString()
 
