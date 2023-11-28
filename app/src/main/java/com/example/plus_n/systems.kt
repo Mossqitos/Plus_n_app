@@ -68,6 +68,15 @@ class systems : Fragment() {
             recolor()
             val hiddenpage = view.findViewById<FrameLayout>(R.id.hiddenLayout)
             val btnReset = view.findViewById<Button>(R.id.redoIcon)
+            val key00 = view.findViewById<Button>(R.id.key00)
+            val key01= view.findViewById<Button>(R.id.key01)
+            val key10= view.findViewById<Button>(R.id.key10)
+            val key11= view.findViewById<Button>(R.id.key11)
+
+            key00.isEnabled=true
+            key01.isEnabled=true
+            key10.isEnabled=true
+            key11.isEnabled=true
             hiddenpage.visibility = View.GONE
             btnReset.visibility = View.GONE
         }
@@ -77,6 +86,7 @@ class systems : Fragment() {
         return view
 
     }
+    
     private fun startTimer(time:Int)
     {
         val progressBar = view.findViewById<ProgressBar>(R.id.TimerIcon)
@@ -115,6 +125,16 @@ class systems : Fragment() {
         val b=n-a
         val hiddenpage = view.findViewById<FrameLayout>(R.id.hiddenLayout)
         val btnReset = view.findViewById<Button>(R.id.redoIcon)
+        val show =view.findViewById<TextView>(R.id.nvalue)
+        val key00 = view.findViewById<Button>(R.id.key00)
+        val key01= view.findViewById<Button>(R.id.key01)
+        val key10= view.findViewById<Button>(R.id.key10)
+        val key11= view.findViewById<Button>(R.id.key11)
+
+        key00.isEnabled=true
+        key01.isEnabled=true
+        key10.isEnabled=true
+        key11.isEnabled=true
         hiddenpage.visibility = View.GONE
         btnReset.visibility = View.GONE
 
@@ -144,21 +164,13 @@ class systems : Fragment() {
                 }
             }
         }
-        val show =view.findViewById<TextView>(R.id.nvalue)
-        val key00 = view.findViewById<Button>(R.id.key00)
-        val key01= view.findViewById<Button>(R.id.key01)
-        val key10= view.findViewById<Button>(R.id.key10)
-        val key11= view.findViewById<Button>(R.id.key11)
+
 
         show.text = n.toString()
         key00.text = arr[0][0].toString()
         key01.text = arr[0][1].toString()
         key10.text = arr[1][0].toString()
         key11.text = arr[1][1].toString()
-        key00.isEnabled=true
-        key01.isEnabled=true
-        key10.isEnabled=true
-        key11.isEnabled=true
         val scoreview:TextView = view.findViewById<TextView>(R.id.Score)
         scoreview.text=Score.toString()
 
@@ -173,6 +185,10 @@ class systems : Fragment() {
     private fun setClickListener(button: Button, resultTextView: TextView, n:Int) {
         button.setOnClickListener {
             toggleButtonSelection(button)
+            val key00 = view.findViewById<Button>(R.id.key00)
+            val key01= view.findViewById<Button>(R.id.key01)
+            val key10= view.findViewById<Button>(R.id.key10)
+            val key11= view.findViewById<Button>(R.id.key11)
 
             if (selectedButtons.size == 2) {
                 val sum = selectedButtons.sumBy { it.text.toString().toInt() }
@@ -195,7 +211,10 @@ class systems : Fragment() {
                     Score++;
                     val scoreview:TextView = view.findViewById<TextView>(R.id.Score)
                     scoreview.text=Score.toString()
-
+                    key00.isEnabled=false
+                    key01.isEnabled=false
+                    key10.isEnabled=false
+                    key11.isEnabled=false
                 }
                 else
                 {
@@ -205,7 +224,10 @@ class systems : Fragment() {
                     btnReset.visibility = View.VISIBLE
                     selectedButtons[0].setBackgroundResource(R.drawable.custom_buttonuncorrect)
                     selectedButtons[1].setBackgroundResource(R.drawable.custom_buttonuncorrect)
-
+                    key00.isEnabled=false
+                    key01.isEnabled=false
+                    key10.isEnabled=false
+                    key11.isEnabled=false
                 }
 
             }
