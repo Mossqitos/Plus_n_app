@@ -103,6 +103,7 @@
             android:layout_height="89dp"
             android:text="reRandom"
             android:textSize="20sp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.852"
@@ -220,6 +221,7 @@
                 android:layout_marginEnd="30sp"
                 android:layout_marginBottom="30sp"
                 android:background="@drawable/arrow_next"
+                android:visibility="gone"
                 android:text="" />
 
         </FrameLayout>

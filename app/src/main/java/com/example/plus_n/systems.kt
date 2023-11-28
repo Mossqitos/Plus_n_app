@@ -47,6 +47,8 @@ class systems : Fragment() {
             selectedButtons.clear()
             val hiddenpage = view.findViewById<FrameLayout>(R.id.hiddenLayout)
             val btnReset = view.findViewById<Button>(R.id.redoIcon)
+            val btnNext = view.findViewById<Button>(R.id.nextRandom)
+            btnNext.visibility = View.GONE
             hiddenpage.visibility = View.GONE
             btnReset.visibility = View.GONE
             rerandomizeValue()
@@ -57,6 +59,8 @@ class systems : Fragment() {
             selectedButtons.clear()
             val hiddenpage = view.findViewById<FrameLayout>(R.id.hiddenLayout)
             val btnReset = view.findViewById<Button>(R.id.redoIcon)
+            val btnNext = view.findViewById<Button>(R.id.nextRandom)
+            btnNext.visibility = View.GONE
             hiddenpage.visibility = View.GONE
             btnReset.visibility = View.GONE
             rerandomizeValue()
@@ -86,7 +90,24 @@ class systems : Fragment() {
         return view
 
     }
-    
+
+    private fun stopplay()
+    {
+        val key00 = view.findViewById<Button>(R.id.key00)
+        val key01= view.findViewById<Button>(R.id.key01)
+        val key10= view.findViewById<Button>(R.id.key10)
+        val key11= view.findViewById<Button>(R.id.key11)
+        val hiddenpage = view.findViewById<FrameLayout>(R.id.hiddenLayout)
+        val btnReset = view.findViewById<Button>(R.id.redoIcon)
+        val btnNext = view.findViewById<Button>(R.id.nextRandom)
+        hiddenpage.visibility = View.VISIBLE
+        btnNext.visibility = View.GONE
+        btnReset.visibility = View.GONE
+        key00.isEnabled=false
+        key01.isEnabled=false
+        key10.isEnabled=false
+        key11.isEnabled=false
+    }
     private fun startTimer(time:Int)
     {
         val progressBar = view.findViewById<ProgressBar>(R.id.TimerIcon)
@@ -103,7 +124,8 @@ class systems : Fragment() {
 
             override fun onFinish() {
                 val result:TextView =view.findViewById<TextView>(R.id.Result)
-                result.text = "Stop"
+                stopplay()
+                result.text = "Time Out"
             }
         }.start()
     }
@@ -125,6 +147,7 @@ class systems : Fragment() {
         val b=n-a
         val hiddenpage = view.findViewById<FrameLayout>(R.id.hiddenLayout)
         val btnReset = view.findViewById<Button>(R.id.redoIcon)
+        val btnNext = view.findViewById<Button>(R.id.nextRandom)
         val show =view.findViewById<TextView>(R.id.nvalue)
         val key00 = view.findViewById<Button>(R.id.key00)
         val key01= view.findViewById<Button>(R.id.key01)
@@ -136,6 +159,7 @@ class systems : Fragment() {
         key10.isEnabled=true
         key11.isEnabled=true
         hiddenpage.visibility = View.GONE
+        btnNext.visibility = View.GONE
         btnReset.visibility = View.GONE
 
         while(la[0]==lb[0]&&la[1]==lb[1])
@@ -189,6 +213,10 @@ class systems : Fragment() {
             val key01= view.findViewById<Button>(R.id.key01)
             val key10= view.findViewById<Button>(R.id.key10)
             val key11= view.findViewById<Button>(R.id.key11)
+            val hiddenpage = view.findViewById<FrameLayout>(R.id.hiddenLayout)
+            val btnReset = view.findViewById<Button>(R.id.redoIcon)
+            val btnNext = view.findViewById<Button>(R.id.nextRandom)
+
 
             if (selectedButtons.size == 2) {
                 val sum = selectedButtons.sumBy { it.text.toString().toInt() }
@@ -202,8 +230,7 @@ class systems : Fragment() {
                 }
                 if(sum == n)
                 {
-                    val hiddenpage = view.findViewById<FrameLayout>(R.id.hiddenLayout)
-                    val btnReset = view.findViewById<Button>(R.id.redoIcon)
+                    btnNext.visibility = View.VISIBLE
                     hiddenpage.visibility = View.VISIBLE
                     btnReset.visibility = View.GONE
                     selectedButtons[0].setBackgroundResource(R.drawable.custom_buttoncorrect)
@@ -218,8 +245,7 @@ class systems : Fragment() {
                 }
                 else
                 {
-                    val hiddenpage = view.findViewById<FrameLayout>(R.id.hiddenLayout)
-                    val btnReset = view.findViewById<Button>(R.id.redoIcon)
+                    btnNext.visibility = View.GONE
                     hiddenpage.visibility = View.VISIBLE
                     btnReset.visibility = View.VISIBLE
                     selectedButtons[0].setBackgroundResource(R.drawable.custom_buttonuncorrect)
