@@ -31,7 +31,7 @@ class systems : Fragment() {
 
     private var timeprogress=0
     private var timeCountDown: CountDownTimer?=null
-    private var timeSelected : Int =0
+    private var timeSelected : Int =30
 
 
 
@@ -109,6 +109,8 @@ class systems : Fragment() {
             rerandomizeValue()
         }
         rerandomizeValue()
+        timeprogress=0
+        timeCountDown =null
         timeSelected=30
         startTimer(timeSelected)
         return view
