@@ -45,6 +45,16 @@ class systems : Fragment() {
         val resetButton= view.findViewById<Button>(R.id.nextRandom)
         val rerandom = view.findViewById<Button>(R.id.reRandom)
         val redo = view.findViewById<Button>(R.id.redoIcon)
+        val btnPlay = view.findViewById<Button>(R.id.playAgain)
+        val hiddenpage = view.findViewById<FrameLayout>(R.id.hiddenLayout)
+        val btnReset = view.findViewById<Button>(R.id.redoIcon)
+        val btnNext = view.findViewById<Button>(R.id.nextRandom)
+        val key00 = view.findViewById<Button>(R.id.key00)
+        val key01= view.findViewById<Button>(R.id.key01)
+        val key10= view.findViewById<Button>(R.id.key10)
+        val key11= view.findViewById<Button>(R.id.key11)
+        val btnUpload = view.findViewById<Button>(R.id.uploadScore)
+        val showScore = view.findViewById<TextView>(R.id.showScore)
         Score=0
         resetButton.setOnClickListener {
             recolor()
@@ -61,9 +71,6 @@ class systems : Fragment() {
 
             recolor()
             selectedButtons.clear()
-            val hiddenpage = view.findViewById<FrameLayout>(R.id.hiddenLayout)
-            val btnReset = view.findViewById<Button>(R.id.redoIcon)
-            val btnNext = view.findViewById<Button>(R.id.nextRandom)
             btnNext.visibility = View.GONE
             hiddenpage.visibility = View.GONE
             btnReset.visibility = View.GONE
@@ -74,19 +81,32 @@ class systems : Fragment() {
         }
         redo.setOnClickListener {
             recolor()
-            val hiddenpage = view.findViewById<FrameLayout>(R.id.hiddenLayout)
-            val btnReset = view.findViewById<Button>(R.id.redoIcon)
-            val key00 = view.findViewById<Button>(R.id.key00)
-            val key01= view.findViewById<Button>(R.id.key01)
-            val key10= view.findViewById<Button>(R.id.key10)
-            val key11= view.findViewById<Button>(R.id.key11)
-
             key00.isEnabled=true
             key01.isEnabled=true
             key10.isEnabled=true
             key11.isEnabled=true
             hiddenpage.visibility = View.GONE
             btnReset.visibility = View.GONE
+        }
+        btnPlay.setOnClickListener {
+            recolor()
+            selectedButtons.clear()
+            key00.isEnabled=true
+            key01.isEnabled=true
+            key10.isEnabled=true
+            key11.isEnabled=true
+            btnNext.visibility = View.GONE
+            hiddenpage.visibility = View.GONE
+            btnReset.visibility = View.GONE
+            btnUpload.visibility=View.GONE
+            btnPlay.visibility=View.GONE
+            showScore.visibility = View.GONE
+            Score =0
+            timeprogress=0
+            timeCountDown =null
+            timeSelected =30
+            startTimer(timeSelected)
+            rerandomizeValue()
         }
         rerandomizeValue()
         timeSelected=30
