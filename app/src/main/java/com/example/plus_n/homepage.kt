@@ -36,6 +36,7 @@ class homepage : Fragment() {
         val rankingPage = view.findViewById<FrameLayout>(R.id.rankingPage)
         showMaxscore.text=MaxScore.toString()
         rankingScore.setOnClickListener {
+            listScore.sortByDescending { it.second }
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
             recyclerView.adapter = RankingAdapter(listScore)
             rankingPage.visibility = View.VISIBLE
