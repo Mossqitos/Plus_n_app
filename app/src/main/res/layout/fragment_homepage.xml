@@ -31,6 +31,7 @@
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
                 android:paddingTop="80dp"
+                android:paddingBottom="15dp"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
