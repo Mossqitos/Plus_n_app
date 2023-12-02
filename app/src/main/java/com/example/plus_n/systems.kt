@@ -120,6 +120,10 @@ class systems : Fragment() {
                 val nameNow = etNameenter.text.toString()
                 if(nameNow.isNotEmpty()) {
                     listScore.add(nameNow to Score)
+                    if(Score>MaxScore)
+                    {
+                        MaxScore=Score
+                    }
                     uploadpopup.visibility = View.GONE
                     btnPlay.visibility = View.VISIBLE
                     btnUpload.visibility = View.GONE
@@ -161,10 +165,6 @@ class systems : Fragment() {
         key01.isEnabled=false
         key10.isEnabled=false
         key11.isEnabled=false
-        if(Score>MaxScore)
-        {
-            MaxScore=Score
-        }
         showScore.visibility = View.VISIBLE
         showScore.text=Score.toString()
     }

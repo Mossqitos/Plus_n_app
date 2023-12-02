@@ -23,7 +23,7 @@ class RankingAdapter(private val players: MutableList<Pair<String,Int>>) : Recyc
 
         // Customize styling for name and score as needed
         holder.nameTextView.text = player.first
-        holder.scoreTextView.text = "Score: ${player.second}"
+        holder.scoreTextView.text = player.second.toString()
     }
 
     override fun getItemCount(): Int {

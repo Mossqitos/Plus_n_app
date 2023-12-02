@@ -9,15 +9,15 @@
 
     <TextView
         android:id="@+id/nameList"
-        android:layout_width="wrap_content"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="5dp"
-        android:text=""
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="10dp"
+        android:text="mmmmmmm"
         android:textColor="@color/white"
-        android:textSize="45sp"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
     <TextView
@@ -25,10 +25,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="337dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="-3dp"
+        android:layout_toEndOf="@+id/nameList"
         android:text=""
         android:textColor="@color/white"
         android:textSize="45sp" />

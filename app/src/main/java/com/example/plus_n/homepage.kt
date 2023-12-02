@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,11 +32,16 @@ class homepage : Fragment() {
         val showMaxscore = view.findViewById<TextView>(R.id.maxScore)
         val rankingScore = view.findViewById<Button>(R.id.btnRanking)
         val recyclerView = view.findViewById<RecyclerView>(R.id.rvRankingList)
+        val closeRanking = view.findViewById<Button>(R.id.closeRankingpage)
+        val rankingPage = view.findViewById<FrameLayout>(R.id.rankingPage)
         showMaxscore.text=MaxScore.toString()
         rankingScore.setOnClickListener {
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
             recyclerView.adapter = RankingAdapter(listScore)
-            recyclerView.visibility = View.VISIBLE
+            rankingPage.visibility = View.VISIBLE
+        }
+        closeRanking.setOnClickListener {
+            rankingPage.visibility = View.GONE
         }
         return view
     }
