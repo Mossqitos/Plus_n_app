@@ -256,10 +256,64 @@
                 android:background="@drawable/playicon"
                 android:visibility="gone"
                 android:text="" />
-            
+
+            <FrameLayout
+                android:id="@+id/uplaodPage"
+                android:layout_width="364dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="100sp"
+                android:background="@drawable/popup_background"
+                android:elevation="11dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Submit Name"
+                    android:textColor="@color/white"
+                    android:textSize="40sp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15sp"/>
+
+
+                <EditText
+                    android:id="@+id/enterName"
+                    android:layout_width="244dp"
+                    android:layout_height="40sp"
+                    android:layout_marginStart="60sp"
+                    android:layout_marginTop="70sp"
+                    android:background="@drawable/popup_background_allblack"
+                    android:hint="Enter your name....."
+                    android:paddingStart="10sp"
+                    android:textColorHint="@color/white"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/cancelUpload"
+                    android:layout_width="83dp"
+                    android:layout_height="82dp"
+                    android:layout_gravity="start|bottom"
+                    android:layout_marginStart="40sp"
+                    android:layout_marginBottom="10sp"
+                    android:background="@drawable/cancelicon"
+                    android:visibility="visible"/>
+
+                <Button
+                    android:id="@+id/btnuplaoded"
+                    android:layout_width="80sp"
+                    android:layout_height="80sp"
+                    android:layout_gravity="bottom|end"
+                    android:background="@drawable/uploadicon"
+                    android:layout_marginEnd="30sp"
+                    android:layout_marginBottom="10sp"/>
+
+
+
+            </FrameLayout>
 
 
         </FrameLayout>
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.plus_n
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,7 +9,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.navigation.Navigation
-import com.example.plus_n.Start_page.GameActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.plus_n.System.RankingAdapter
 
 
 private const val ARG_PARAM1 = "param1"
@@ -18,6 +21,7 @@ private const val ARG_PARAM2 = "param2"
 class homepage : Fragment() {
 
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,7 +29,14 @@ class homepage : Fragment() {
 
         val view= inflater.inflate(R.layout.fragment_homepage, container, false)
         val showMaxscore = view.findViewById<TextView>(R.id.maxScore)
+        val rankingScore = view.findViewById<Button>(R.id.btnRanking)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.rvRankingList)
         showMaxscore.text=MaxScore.toString()
+        rankingScore.setOnClickListener {
+            recyclerView.layoutManager = LinearLayoutManager(requireContext())
+            recyclerView.adapter = RankingAdapter(listScore)
+            recyclerView.visibility = View.VISIBLE
+        }
         return view
     }
 
@@ -35,6 +46,7 @@ class homepage : Fragment() {
             Navigation.findNavController(view).navigate(R.id.firstnav)
         }
     }
+
 
 
 }

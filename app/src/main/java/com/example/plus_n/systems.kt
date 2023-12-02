@@ -1,7 +1,6 @@
 package com.example.plus_n
 
 
-import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
 import androidx.fragment.app.Fragment
@@ -9,18 +8,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import androidx.navigation.Navigation
-import com.example.plus_n.Start_page.generateRandomExcludingValues
 import kotlin.random.Random
 
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 public var MaxScore:Int = 0
+public var listScore :MutableList<Pair<String,Int>> = mutableListOf()
 
 class systems : Fragment() {
     // TODO: Rename and change types of parameters
@@ -55,6 +54,10 @@ class systems : Fragment() {
         val key11= view.findViewById<Button>(R.id.key11)
         val btnUpload = view.findViewById<Button>(R.id.uploadScore)
         val showScore = view.findViewById<TextView>(R.id.showScore)
+        val uploadpopup = view.findViewById<FrameLayout>(R.id.uplaodPage)
+        val cancelUpload = view.findViewById<Button>(R.id.cancelUpload)
+        val etNameenter = view.findViewById<EditText>(R.id.enterName)
+        val uploaded = view.findViewById<Button>(R.id.btnuplaoded)
         Score=0
         resetButton.setOnClickListener {
             recolor()
@@ -107,6 +110,26 @@ class systems : Fragment() {
             timeSelected =30
             startTimer(timeSelected)
             rerandomizeValue()
+        }
+        btnUpload.setOnClickListener {
+            uploadpopup.visibility = View.VISIBLE
+            btnPlay.visibility = View.GONE
+            btnUpload.visibility = View.GONE
+        }
+            uploaded.setOnClickListener {
+                val nameNow = etNameenter.text.toString()
+                if(nameNow.isNotEmpty()) {
+                    listScore.add(nameNow to Score)
+                    uploadpopup.visibility = View.GONE
+                    btnPlay.visibility = View.VISIBLE
+                    btnUpload.visibility = View.GONE
+                    etNameenter.text.clear()
+                }
+            }
+        cancelUpload.setOnClickListener {
+            uploadpopup.visibility = View.GONE
+            btnPlay.visibility = View.VISIBLE
+            btnUpload.visibility = View.VISIBLE
         }
         rerandomizeValue()
         timeprogress=0

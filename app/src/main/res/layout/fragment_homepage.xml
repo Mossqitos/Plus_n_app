@@ -39,6 +39,7 @@
             app:layout_constraintVertical_bias="0.31" />
 
         <Button
+            android:id="@+id/btnRanking"
             android:layout_width="88dp"
             android:layout_height="75dp"
             android:background="@drawable/ranking"
@@ -65,6 +66,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.677" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvRankingList"
+            android:layout_width="339dp"
+            android:layout_height="610dp"
+            android:background="@drawable/popup_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.495"
+            android:visibility="gone"
+            android:paddingTop="80dp"
+            android:paddingStart="40dp"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
